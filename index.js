@@ -27,7 +27,7 @@ const helmet = require('helmet');
 
 
 
-const dbUrl = proccess.env.DBATLAS_URL || 'mongodb://127.0.0.1:27017/CalGems'
+const dbUrl = process.env.DBATLAS_URL || 'mongodb://127.0.0.1:27017/CalGems'
 //------Mongoose Connection
 const mongoose = require('mongoose');
 mongoose.connect(dbUrl, {
@@ -173,6 +173,7 @@ app.use((err, req, res, next) => {
     res.status(status).render('error', { status, err })
 });
 
-app.listen(3000, () => {
-    console.log('Live on port 3000!')
+const port = process.env.PORT || 3000
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`)
 });
