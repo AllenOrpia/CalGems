@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate') %>
+
+  <section class="d-flex align-items-center">
+    <div class="container mt-5">
+      <h1 class="mb-3">Add New Trail</h1>
+      <div class="row ">
+        <div class="col-lg-6">
+          <form action='/trails' method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+            <div class="form-group mb-3">
+              <label for="title" class="text-primary">Trail Name</label>
+              <input type="title" class="form-control" id="title" name="trail[title]" required>
+            </div>
+            <div class="form-group mb-3">
+              <label for="location" class="text-primary">Location</label>
+              <input type="title" class="form-control" id="location" name="trail[location]" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="image" class="form-label">Upload Image Files</label>
+              <input class="form-control" type="file" id="image" name="image" multiple required>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="description" class="text-primary"> Trail Description</label>
+              <textarea class="form-control" id="description" name="trail[description]" rows="3" required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Add Trail</button>
+          </form>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block">
+          <img src="/images/undraw_hiking_re_k0bc.svg" alt="Girl going on a hiking trip" class="w-100" required>
+        </div>
+      </div>
+
+    </div>
+
+
+  </section>
+  <script src="/js/formValidator.js"></script>

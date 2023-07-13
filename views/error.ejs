@@ -1,0 +1,10 @@
+<% layout('layouts/boilerplate') %>
+ <div class="bg-red-700 text-center py-4 lg:px-4 mt-10 w-1/2 mx-auto">
+    <div class="p-2 bg-red-600 items-center text-red-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+      <% if (process.env.NODE_ENV !== 'production') { %>
+        <p><%= err.stack %></p>
+      <% } else { %>
+        <p><%= err.message %></p>
+      <% } %>
+    </div>
+  </div> 

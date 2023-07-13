@@ -1,0 +1,57 @@
+
+
+<% layout('layouts/boilerplate') %>
+
+<section class="d-flex align-items-center">
+  <div class="container mt-5">
+    <h1 class="mb-3">Update Trail</h1>
+    <div class="row ">
+      <div class="col-lg-6">
+        <form action="/trails/<%= trail._id %>?_method=PUT" method="POST"  enctype="multipart/form-data" class="needs-validation" novalidate>
+            <div class="form-group mb-3">
+              <label for="title" class="text-primary">Trail Name</label>
+              <input type="title" class="form-control" id="title" name="trail[title]" value="<%= trail.title%>" required>
+            </div>
+            <div class="form-group mb-3">
+              <label for="location" class="text-primary">Location</label>
+              <input type="title" class="form-control" id="location" name="trail[location]"  value="<%= trail.location %>" required>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="description" class="text-primary"> Trail Description</label>
+              <textarea class="form-control" id="description" name="trail[description]" rows="3"  value="<%= trail.description %>" required><%= trail.description %></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label">Add images</label>
+              <input class="form-control" type="file" id="image" name="image" multiple >
+            </div>
+            <% if(trail.images.length > 0) { %>
+            
+              <div class="mb-3">
+                <p class="mb-3">Delete images</p>
+                <% trail.images.forEach(function(img,i) { %>
+                 
+                  <div class="form-check-inline mb-3 ">
+                      <img src="<%= img.thumbnail %>" alt="" class="">
+                      <input type="checkbox" id="image-<%=i%>" name="deleteImgs[]" value="<%= img.filename%>">
+                      <label for="image-<%=i%>">Delete</label>
+                    </div>
+                  
+                <% }) %>
+              </div>
+            
+            <% } %>
+            
+            <button class="btn btn-primary" type="submit">Update</button>
+          </form>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <img src="/images/undraw_outdoor_adventure_re_j3b7.svg" alt="Girl going on a hiking trip" class="w-100">
+      </div>
+    </div>
+  
+  </div>
+
+
+</section>
+<script  src="/js/formValidator.js"></script>

@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate') %>
+
+
+
+    <section class="">
+        <div class="container-fluid mt-5 d-flex align-items-center flex-column ">
+            <h1 class="mb-3 display-3 text-center">All Trails</h1>
+            <div id="map" class="" style="width: 90%; height: 380px"></div>
+        </div>
+    </section>
+
+    
+        <div class="container-fluid overflow-auto mt-5 d-flex  ">
+            <% for (i=0; i < trails.length; i++) { %>
+                <div class="m-3 ">
+                    <div class="card bg-light " style="width: 18rem; height: 100%">
+                        <div class="card-body">
+                            <% if (trails[i].images.length > 0) { %>
+                                <img src="<%= trails[i].images[0].url %>" alt="" class="card-img-top mb-2">
+                            <% } %>
+                            <h5 class="card-title mb-2">
+                                <%= trails[i].title%>
+                            </h5>
+                            <p class="card-text mb-2">
+                                <%= trails[i].description%>
+                            </p>
+                            <a href="/trails/<%= trails[i]._id%>" class="card-link">View Trail</a>
+
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+
+
+        <script>
+            const mapToken = '<%- process.env.MAPBOX_TOKEN %>';
+            const trails = {features:<%- JSON.stringify(trails) %>}
+        </script>
+        <script src="/js/clusterMap.js"></script>
+    
