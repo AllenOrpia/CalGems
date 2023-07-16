@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose')
-const Review = require('./models/Review')
+const Review = require('./Review')
 const Schema = mongoose.Schema
 
 const imageSchema = new Schema({
