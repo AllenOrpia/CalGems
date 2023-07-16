@@ -1,5 +1,5 @@
 
-const Review = require('../models/Review')
+const Review = require('../models/review')
 const Trail = require('../models/Trail')
 
 
