@@ -6,7 +6,7 @@ const AppError = require('../util/AppError')
 const { reviewSchema } = require('../util/validationSchema.js')
 const isLoggedIn = require('../middleware/isLoggedIn')
 const reviews = require('../controllers/reviews')
-const Review = require('../models/review')
+const Review = require('../models/Review')
 const asyncWrapper = require('../util/asyncWrapper')
 
 
