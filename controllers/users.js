@@ -41,6 +41,6 @@ module.exports.logoutUser = (req, res, next) => {
             return next(err)
         }
         req.flash('success', 'Succesfully Logged Out')
-        res.redirect('/')
+        res.redirect('/trails')
     })
 }
