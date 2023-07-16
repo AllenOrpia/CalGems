@@ -27,10 +27,10 @@ const helmet = require('helmet');
 
 
 
-const dbUrl = process.env.DBATLAS_URL || 'mongodb://127.0.0.1:27017/CalGems'
+const dbUrl =  'mongodb://127.0.0.1:27017/CalGems'
 //------Mongoose Connection
 const mongoose = require('mongoose');
-mongoose.connect(dbUrl, {
+mongoose.connect('mongodb://127.0.0.1:27017/CalGems', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
